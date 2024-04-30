@@ -1,0 +1,69 @@
+- Class: meta
+  Course: R Tutorials
+  Lesson: Data Problems
+  Author: Walter Garcia-Fontes
+  Type: Standard
+  Organization: Universitat Pompeu Fabra
+  Version: 1.0.0
+
+- Class: text
+  Output: In this lesson we will show different tools to perform a
+   diagnosis for regressions. When you want to use regression analysis
+   it is very important that you check that the main assumptions for
+   the regression hold for your data. If the assumptions are violated,
+   then the regression results may be completely wrong.
+
+- Class: cmd_question
+  Output: In this lesson we will use the "mtcars" data set which is
+   avaliable in the "datasets" package. Check the contents of this
+   data set using the str() function.
+  CorrectAnswer: str(mtcars)
+  AnswerTests: omnitest(correctExpr='str(mtcars)')
+  Hint: Type "str(mtcars)" at the R prompt to see the contents of the
+   mtcars data set.
+
+- Class: cmd_question
+  Output: We will fit a multiple regression with this data set. We
+   will regress mpg (gas consumption measured by miles per gallon) on
+   disp (displacement), hp (gross horsepower), weight (in pounds) and
+   drat (rear axle ratio). This example is for exposition only. We
+   will ignore the fact that this may not be a great way of modeling
+   the this particular set of data! Use now the lm() function to
+   fit this regression, and save the result in an object called "fit".
+  CorrectAnswer: fit <- lm(mpg~disp+hp+wt+drat, data=mtcars)
+  AnswerTests: omnitest(correctExpr='fit <- lm(mpg~disp+hp+wt+drat, data=mtcars)')
+  Hint: Type "fit <- lm(mpg~disp+hp+wt+drat, data=mtcars) " at the R
+   prompt to fit this regression.
+
+- Class: cmd_question
+  Output: Enter now "fit" at the R command prompt to see the results
+   of the regression.
+  CorrectAnswer: fit
+  AnswerTests: omnitest(correctExpr='fit')
+  Hint: Type "fit" at the R prompt.
+
+- Class: mult_question
+  Output: Choose the appropriate value for the estimated constant of
+   the regression line.
+  AnswerChoices: 29.148738; 0.003815; -12.41667; I haven't a clue
+  CorrectAnswer: 29.148738
+  AnswerTests: omnitest(correctVal='29.148738')
+  Hint: Check the value under "Intercept".
+
+- Class: text
+  Output: R has extensive graphical and numerical tools to test if the
+   assumptions for the regression are valid for this data set or are
+   violated. We will first check the graphical tools. A basic
+   assumption of linear regression is that the relationship is indeed
+   linear. To check this, a very useful tool is the residual plot,
+   which plots the residuals against the fitted value of the
+   regression.
+
+- Class: figure
+  Output: The scatterplot allows also to identify outliers. Outliers are
+   cases with a large different with respect to the mean of either variable
+   or both. We have marked the outliers for you in the scatterplot. We have
+   also plotted a horizontal line equal to the mean of the final, and a
+   vertical line equal to the mean of the midterm.
+  Figure: figure_resfit.R
+  FigureType: new
